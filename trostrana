@@ -1,0 +1,109 @@
+using System;
+
+namespace mtel
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Izaberite vrstu piramide:");
+              Console.WriteLine("1.Trostrana");
+              Console.WriteLine("2.Cetvorostrana");
+              Console.WriteLine("3.Sestostrana");
+              Console.WriteLine("Izaberite broj od 1 do 3:");
+              int izborPiramide = Convert.ToInt32(Console.ReadLine());
+                if (izborPiramide<1||izborPiramide>3) 
+                {
+                  while (izborPiramide<1||izborPiramide>3)
+                  
+                  {
+                      Console.WriteLine("Broj mora biti izmedju 1 i 3, pokusajte ponovo");//ako je unos nedozvoljen
+                      izborPiramide = Convert.ToInt32(Console.ReadLine());
+                  }
+                }
+
+                if (izborPiramide==1)//trostrana
+                {
+                    Console.WriteLine("Izabrali ste Trocifrenu piramidu.");
+                    Console.WriteLine("Unesite duzinu stranice baze(a):");
+                    double aBazaTrostrane = Convert.ToDouble(Console.ReadLine());//unos stranice baze
+                    Console.WriteLine("Unesite visinu piramide(H)");
+                    double visinaTrostrane = Convert.ToDouble(Console.ReadLine());//unos visine piramide
+                    
+                    double hT = Math.Sqrt(Math.Pow((aBazaTrostrane * Math.Sqrt(3)) / 3, 2) + Math.Pow(visinaTrostrane, 2));//apotema
+                    hT = Math.Round(hT,2);
+                    double PT = (Math.Pow(aBazaTrostrane, 2) * Math.Sqrt(3)) / 3 + 3 * aBazaTrostrane * hT;//povrsina
+                    PT = Math.Round(PT,2);
+                    double BT = (Math.Pow(aBazaTrostrane, 2) * Math.Sqrt(3)) / 3;//baza
+                    BT = Math.Round(BT,2);
+                    double MT =3 * aBazaTrostrane * hT;//omotac
+                    MT = Math.Round(MT,2);
+                    double VT = (BT * visinaTrostrane) / 3;//zapremina
+                    VT = Math.Round(VT,2);
+                    Console.WriteLine("Apotema "+ hT);
+                    Console.WriteLine("Baza "+ BT);
+                    Console.WriteLine("Omotac "+ MT);
+                    Console.WriteLine("Povrsina "+ PT);
+                    Console.WriteLine("Zapremina "+ VT);
+
+
+                }
+
+                if (izborPiramide==2)//cetvorostrana
+                {
+                    Console.WriteLine("Izabrali ste cetvorostranu piramidu.");
+                    Console.WriteLine("Unesite duzinu baze(a)");
+                    double aBazaCetvorostrane = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Unesite visinu piramide(H)");
+                    double visinaCetvorostrane = Convert.ToDouble(Console.ReadLine());
+
+                    double hC = Math.Sqrt(Math.Pow(aBazaCetvorostrane/2, 2)+Math.Pow(visinaCetvorostrane,2)) ;
+                    hC = Math.Round(hC,2);
+                    double BC = Math.Pow(aBazaCetvorostrane, 2);
+                    BC = Math.Round(BC,2);
+                    double MC = 4 * (aBazaCetvorostrane*hC/2);
+                    MC = Math.Round(MC,2);
+                    double PC = BC + MC;
+                    PC = Math.Round(PC,2);
+                    double VC = BC * visinaCetvorostrane / 2;
+                    VC = Math.Round(VC,2);
+                    Console.WriteLine("Apotema "+ hC);
+                    Console.WriteLine("Baza "+ BC);
+                    Console.WriteLine("Omotac "+ MC);
+                    Console.WriteLine("Povrsina "+ PC);
+                    Console.WriteLine("Zapremina "+ VC);
+                   
+
+
+                }
+
+                if (izborPiramide==3) //sestostrana
+                {
+                    Console.WriteLine("izabrali ste sestostranu piramidu");
+                    Console.WriteLine("unesite duzinu baza(a)");
+                    double aBazeSestostrane = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Unesite visinu piramide(H)");
+                    double visinaSestostrane = Convert.ToDouble(Console.ReadLine());
+                    
+                    double hS=Math.Sqrt(Math.Pow((aBazeSestostrane * Math.Sqrt(3)) / 3, 2) + Math.Pow(visinaSestostrane, 2));//apotema
+                    hS = Math.Round(hS,2);
+                    double BS = 6 * (Math.Pow(aBazeSestostrane, 2) * Math.Sqrt(3) / 4);
+                    BS = Math.Round(BS,2);
+                    double MS = 6 * (aBazeSestostrane * hS / 2);
+                    BS = Math.Round(BS,2);
+                    double PS = BS + MS;
+                    PS = Math.Round(PS,2);
+                    double VS = BS * visinaSestostrane / 3;
+                    VS = Math.Round(VS,2);
+                    Console.WriteLine("Apotema "+ hS);
+                    Console.WriteLine("Baza "+ BS);
+                    Console.WriteLine("Omotac "+ MS);
+                    Console.WriteLine("Povrsina "+ PS);
+                    Console.WriteLine("Zapremina "+ VS);
+
+                }
+              
+
+        }
+    }
+}
