@@ -1,0 +1,145 @@
+using System;
+
+namespace ConsoleApplication3
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("izaberite jednu opciju");
+            Console.WriteLine("1.racunanje povrsine");
+            Console.WriteLine("2.racunanje zapremine");
+            Console.WriteLine("3.racunanje apoteme");
+            Console.WriteLine("4.racunanje bocne ivice");
+            Console.WriteLine("5.racunanje visine");
+            Console.WriteLine("6.racunanje duzine baze");
+            Console.WriteLine("7.racunanje povrsine dijagonalnog presjeka");
+            Console.WriteLine("8.Racunanje dijagonale");
+            int izborOpcije = Convert.ToInt32(Console.ReadLine());
+
+            if (izborOpcije<1||izborOpcije>8)
+            {
+                while (izborOpcije<1||izborOpcije>8)
+                {
+                    Console.WriteLine("Broj mora biti izmedju 1 i 8, pokusajte ponovo");//ako je unos nedozvoljen
+                    izborOpcije=Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+            if (izborOpcije==1)
+            {
+                Console.WriteLine("izabrali ste racunaje povrsine");
+                Console.WriteLine("unesite duzinu baze");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite duzinu apoteme");
+                double apotemaDuzina = Convert.ToDouble(Console.ReadLine());
+
+                double povBaze = Math.Pow(bazaDuzina, 2);
+                povBaze = Math.Round(povBaze,2);
+                double povOmotaca = 4 * (bazaDuzina * apotemaDuzina / 2);
+                povOmotaca = Math.Round(povOmotaca,2);
+                double povPiramide = povBaze + povOmotaca;
+                povPiramide = Math.Round(povPiramide,2);
+                Console.WriteLine("povrsina baze je "+povBaze);
+                Console.WriteLine("povrsina omotaca je"+povOmotaca);
+                Console.WriteLine("povrsina piramide je"+povPiramide);
+
+            }
+
+            if (izborOpcije==2)
+            {
+                Console.WriteLine("izabrali ste racunanje zaremine ");
+                Console.WriteLine("unesite duzinu baze");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu piramide");
+                double visinaPiramide = Convert.ToDouble(Console.ReadLine());
+
+                double zapreminaPiramide = Math.Pow(bazaDuzina, 2) * visinaPiramide / 3;
+                zapreminaPiramide = Math.Round(zapreminaPiramide, 2);
+                Console.WriteLine("zapremina je "+zapreminaPiramide);
+                
+                
+
+            }
+
+            if (izborOpcije==3)
+            {
+                Console.WriteLine("izabrali ste racunanje apoteme");
+                Console.WriteLine("unesite duzinu baze");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu piramide");
+                double visinaPiramide = Convert.ToDouble(Console.ReadLine());
+
+                double duzinaApotema = Math.Sqrt(Math.Pow(bazaDuzina / 2, 2) + Math.Pow(visinaPiramide, 2));
+                duzinaApotema = Math.Round(duzinaApotema, 2);
+                Console.WriteLine("duzina apoteme je "+duzinaApotema);
+
+            }
+
+            if (izborOpcije==4)
+            {
+                Console.WriteLine("izabrali ste racunanje bocne strane");
+                Console.WriteLine("unesite Duzinu baze (a)");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite duzinu apoteme(h)");
+                double apotemaDuzina = Convert.ToDouble(Console.ReadLine());
+
+                double stranaBocna = Math.Sqrt(Math.Pow(bazaDuzina / 2, 2) + Math.Pow(apotemaDuzina, 2));
+                stranaBocna = Math.Round(stranaBocna, 2);
+                Console.WriteLine("duzina bozne ivice je "+stranaBocna);
+            }
+
+            if (izborOpcije==5)
+            {
+                Console.WriteLine("izabrali ste racunanje visine");
+                Console.WriteLine("unesite Duzinu baze (a)");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite duzinu apoteme(h)");
+                double apotemaDuzina = Convert.ToDouble(Console.ReadLine());
+
+                double visinaPiramide = Math.Sqrt(Math.Pow(apotemaDuzina, 2) - Math.Pow(bazaDuzina / 2, 2));
+                visinaPiramide = Math.Round(visinaPiramide, 2);
+                Console.WriteLine("visina piramide je "+visinaPiramide);
+            }
+
+            if (izborOpcije==6)
+            {
+                Console.WriteLine("izabrali ste racunanje duzine baze");
+                Console.WriteLine("unesite duzinu apoteme(h)");
+                double apotemaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu piramid(H)");
+                double visinaPiramide = Convert.ToDouble(Console.ReadLine());
+
+                double duzinaBaze = Math.Sqrt((Math.Pow(apotemaDuzina, 2) - Math.Pow(visinaPiramide, 2)) * 4);
+                duzinaBaze = Math.Round(duzinaBaze, 2);
+                Console.WriteLine("duzina beze je "+duzinaBaze);
+                
+            }
+
+            if (izborOpcije==7)
+            {
+                Console.WriteLine("Racunanje povrsin dijagonalnog presjeka");
+                Console.WriteLine("unesite duzinu dijagonale");
+                double duzinaDijagonale = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu piramid(H)");
+                double visinaPiramide = Convert.ToDouble(Console.ReadLine());
+
+                double povrsinaPresjeka = duzinaDijagonale * visinaPiramide / 2;
+                povrsinaPresjeka = Math.Round(povrsinaPresjeka, 2);
+                Console.WriteLine("Povrsina dijagonalnog presjeka je "+povrsinaPresjeka);
+            }
+
+            if (izborOpcije==8)
+            {
+                Console.WriteLine("izabrali ste racunanje dijagonale");
+                Console.WriteLine("unesite Duzinu baze (a)");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+
+                double duzinaDijagonale = bazaDuzina * Math.Sqrt(2);
+                duzinaDijagonale = Math.Round(duzinaDijagonale, 2);
+                Console.WriteLine("duzina dijagonale je "+duzinaDijagonale);
+
+            }
+        }
+    }
+}
